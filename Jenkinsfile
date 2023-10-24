@@ -17,5 +17,21 @@ pipeline{
                 }
             }
         }
+
+        stage('Integration Testing: MVN'){            
+            steps{                
+                script{
+                    sh 'mvn verify -DskipUnitTests'
+                }
+            }
+        }
+
+        stage('Maven Build: MVN'){
+            steps{
+                script{ 
+                    sh 'mvn clean install'
+                }
+            }
+        
     }
 }
