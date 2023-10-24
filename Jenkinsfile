@@ -33,5 +33,24 @@ pipeline{
                 }
             }
         }
+
+        stage('Static Code Analysis: SonarQube'){ 
+            steps{ 
+                script{
+                    withSonarQubeEnv(credentialsId: 'sonar-creds') {  
+                        sh 'mvn clean package sonar:sonar'
+                        }
+                    }
+                    
+                }
+            }
+
+            stage('Quality Gate Status: SonarQube'){
+                steps{
+                    script{ 
+                        waitForQualityGate abortPipeline: false, credentialsId: 'sonar-creds'
+                   }
+              }
+         }
     }
 }
