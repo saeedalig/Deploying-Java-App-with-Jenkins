@@ -74,7 +74,7 @@ pipeline{
 					nexusVersion: 'nexus3', 
 					protocol: 'http', 
 					repository: 'demo-release', 
-					version: "${readMavenPom.version}"
+					version: "${readPomVersion .version}"
                 }
             }
         }
