@@ -11,4 +11,4 @@ WORKDIR /app
 # Copy the built JAR file from the builder stage to the final image
 COPY --from=builder /app/target/Uber.jar /app/
 EXPOSE 9090
-CMD ["java", "-jar", "your-app.jar"]
+CMD ["java", "-jar", "Uber.jar"]
