@@ -55,7 +55,10 @@ pipeline{
 
         stage('Upload Jar file to Nexus'){
             steps{
-                script{ 
+                script{
+				
+					def readPomVersion = readMavenPom file : 'pom.xml'   # variablizing version
+					
                     nexusArtifactUploader artifacts: 
 					[
 						[
@@ -71,7 +74,7 @@ pipeline{
 					nexusVersion: 'nexus3', 
 					protocol: 'http', 
 					repository: 'demo-release', 
-					version: '1.0.0'
+					version: "${readMavenPom.version}"
                 }
             }
         }
