@@ -57,7 +57,7 @@ pipeline{
             steps{
                 script{
 				
-					def readPomVersion = readMavenPom file : 'pom.xml'   # variablizing version
+		    def readPomVersion = readMavenPom file : 'pom.xml'   // variablizing version
 					
                     nexusArtifactUploader artifacts: 
 					[
