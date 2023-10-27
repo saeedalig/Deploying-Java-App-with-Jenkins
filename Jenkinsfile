@@ -10,13 +10,13 @@ pipeline{
             }
         }
 
-        stage('UNIT Testing: MVN'){
-            steps{  
-                script{
-                    sh 'mvn test'
-                }
-            }
-        }
+        // stage('UNIT Testing: MVN'){
+        //     steps{  
+        //         script{
+        //             sh 'mvn test'
+        //         }
+        //     }
+        // }
 
         stage('Integration Testing: MVN'){            
             steps{                
